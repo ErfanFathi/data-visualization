@@ -60,10 +60,10 @@ d3.csv("./data/life_expectancy_vs_gdp_all_years.csv").then(function(data) {
         .attr("x", -margin.top)
         .text("Life Expectancy");
 
-    // Color scale for different years
-    const color = d3.scaleOrdinal()
-        .domain([...new Set(sampleData.map(d => d.Year))])
-        .range(d3.schemeCategory10);
+    // Define a color scale
+    const color = d3.scaleSequential()
+        .domain([2000, 2015])
+        .interpolator(d3.interpolateViridis);
 
     // Add a tooltip
     const tooltip = d3.select("#tooltip");
@@ -78,7 +78,7 @@ d3.csv("./data/life_expectancy_vs_gdp_all_years.csv").then(function(data) {
             .attr("cy", d => y(d['Life expectancy']))
             .attr("r", 3)
             .style("fill", d => color(d.Year))
-            .style("fill-opacity", 0.6)
+            .style("fill-opacity", 0.8)
             .on("mouseover", function(event, d) {
                 tooltip.style("visibility", "visible")
                        .html(`Year: ${d.Year}<br>Life Expectancy: ${d['Life expectancy']}<br>GDP: ${d.GDP.toFixed(2)}`)
