@@ -1,15 +1,5 @@
 .bar {
     fill: #5ce0bb;
-    animation: bar-animation 0.5s ease;
-}
-
-@keyframes bar-animation {
-    from {
-        height: 0%;
-    }
-    to {
-        height: 60%;
-    }
 }
 
 .bar:hover {
@@ -65,7 +55,17 @@
 
 .country {
     stroke-width: 2;
-    stroke: grey;
+    stroke: white;
+    opacity: 0.7;
+}
+
+.country:hover {
+    opacity: 1;
+}
+
+#map path {
+    stroke: black;
+    stroke-width: 1px;
 }
 
 #map{
@@ -73,23 +73,10 @@
     height: 100%;
 }
 
-#map :hover {
-    fill: #cf3434;
-    stroke: #000;
-    stroke-width: 3px;
-}
-
 p {
     font-family: 'Fira Sans';
     font-size: 1.1rem;
     text-align: justify;
-    margin: 10px;
-}
-
-h1 {
-    font-family: 'Fira Sans';
-    font-size: 2.5rem;
-    text-align: center;
     margin: 10px;
 }
 
